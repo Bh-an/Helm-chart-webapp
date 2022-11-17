@@ -1,0 +1,66 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ include "webapp.fullname" . }}-deploy
+  labels:
+    {{- include "webapp.labels" . | nindent 4 }}
+
+spec:
+  {{- if not .Values.autoscaling.enabled }}
+  replicas: {{ .Values.replicaCount }}
+  {{- end }}
+  selector:
+    matchLabels:
+      {{- include "webapp.selectorLabels" . | nindent 6 }}
+
+  minReadySeconds: 30
+  progressDeadlineSeconds: 500
+  
+  strategy:
+    {{- include "webapp.updatestratergy" . | nindent 8 }}
+  
+  template:
+    metadata:
+      labels:
+        {{- include "webapp.selectorLabels" . | nindent 8 }}
+    spec:
+      containers:
+      - name: webapp
+        image: "{{ .Values.appimage.repository }}:{{ .Values.appimage.tag }}"
+        livenessProbe:
+          httpGet:
+            #host: localhost
+            path: /healthy
+            port: 8080
+          initialDelaySeconds: 5
+          periodSeconds: 15
+          successThreshold: 1
+
+        readinessProbe:
+          httpGet:
+            #host: localhost
+            path: /ready
+            port: 8080
+          initialDelaySeconds: 5
+          periodSeconds: 15
+          successThreshold: 1
+
+      restartPolicy: Always
+      
+      # initContainers:
+      # - name: schema-migration
+      #   image: csye7125group01/db_migration:latest
+      #   envFrom:
+      #   - secretRef:
+      #       name: db-secret
+      #   env:
+      #     - name: FLYWAY_DEFAULT_SCHEMA
+      #       value: webapp_schema
+      #   command: ["flyway", "migrate", "-url=jdbc:mysql://database-2.cgpypelaecd0.us-east-1.rds.amazonaws.com:3306", "-user=tfk8", "-password=tfk8password"]
+        
+
+      spec:
+      {{- with .Values.imagePullSecrets }}
+      imagePullSecrets:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
