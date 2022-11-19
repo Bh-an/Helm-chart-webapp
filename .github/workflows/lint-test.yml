@@ -28,7 +28,7 @@ jobs:
         uses: helm/chart-testing-action@v2.3.1
         
       - name: Run chart-testing (lint)
-        run: helm lint webapp-chart
+        run: helm lint
       
       - name: Run helm template
-        run: helm template webapp-chart
+        run: helm template webapp ./
