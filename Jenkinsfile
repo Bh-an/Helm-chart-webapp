@@ -5,7 +5,7 @@ pipeline {
 
     environment {
         GITHUB_TOKEN_SECRET = credentials('gh-token-secret')
-        GITHUB_TOKEN = "$GITHUB_TOKEN_SECRET_USR"
+        GITHUB_TOKEN = "$GITHUB_TOKEN_SECRET_PSW"
     }
 
     stages {
