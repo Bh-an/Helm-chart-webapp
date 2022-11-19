@@ -26,6 +26,8 @@ pipeline {
         
         stage('release') {
             steps {
+                
+        withCredentials([[$class: 'UsernamePasswordMultiBinding', credentialsId: 'gh-token-secret', usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD']]) {
 
         sh "npm install @semantic-release/git -D"
 
