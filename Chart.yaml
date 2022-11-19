@@ -2,11 +2,14 @@ apiVersion: v2
 name: webapp
 description: A Helm chart for webapp deployment in Kubernetes
 
-
 type: application
-
-
 version: 1.0.0
-
-
 appVersion: "1.0.0"
+
+sources:
+  - https://github.com/csye7125-fall2022-group01/helm-chart
+maintainers:
+  - name: Chandrabhan Tanwar
+    email: bhan.16070@gmail.com
+  - name: Raj Mehta
+    email: mehta.raj@northeastern.edu
