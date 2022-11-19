@@ -1,3 +1,10 @@
+## [1.0.1](https://github.com/csye7125-fall2022-group01/helm-chart/compare/v1.0.0...v1.0.1) (2022-11-19)
+
+
+### Bug Fixes
+
+* **NOTES.txt:** Added helmchart usage instructions ([3235e90](https://github.com/csye7125-fall2022-group01/helm-chart/commit/3235e9057553cfd4ab7acee6f3880c5ff53e1de1))
+
 # 1.0.0 (2022-11-19)
 
 

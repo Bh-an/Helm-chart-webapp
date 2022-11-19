@@ -3,7 +3,24 @@ entries:
   webapp:
   - apiVersion: v2
     appVersion: 1.0.0
-    created: "2022-11-19T05:16:51.056875143Z"
+    created: "2022-11-19T06:37:29.945054367Z"
+    description: A Helm chart for webapp deployment in Kubernetes
+    digest: 28b560fdf295ff36fc9f08e49ff67f7551a6519d5f60d0841828222778e43ae8
+    maintainers:
+    - email: bhan.16070@gmail.com
+      name: Chandrabhan Tanwar
+    - email: mehta.raj@northeastern.edu
+      name: Raj Mehta
+    name: webapp
+    sources:
+    - https://github.com/csye7125-fall2022-group01/helm-chart
+    type: application
+    urls:
+    - dist/webapp-1.0.1.tgz
+    version: 1.0.1
+  - apiVersion: v2
+    appVersion: 1.0.0
+    created: "2022-11-19T06:37:29.000485506Z"
     description: A Helm chart for webapp deployment in Kubernetes
     digest: edd174aaa3e79ced2d6b4981bc9031f5acd9a55bc9801ab7787f2f79081ae0c7
     name: webapp
@@ -11,4 +28,4 @@ entries:
     urls:
     - dist/webapp-1.0.0.tgz
     version: 1.0.0
-generated: "2022-11-19T05:16:50.555756618Z"
+generated: "2022-11-19T06:37:28.520919903Z"
