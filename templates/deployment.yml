@@ -7,7 +7,6 @@ metadata:
 
 spec:
   replicas: {{ .Values.replicaCount }}
-  {{- end }}
   selector:
     matchLabels:
       {{- include "webapp.selectorLabels" . | nindent 6 }}
