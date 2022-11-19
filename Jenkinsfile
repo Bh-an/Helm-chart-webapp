@@ -4,8 +4,7 @@ pipeline {
     agent any
 
     environment {
-        GITHUB_TOKEN = credentials('gh-token-secret')
-
+        GITHUB_TOKEN_SECRET = credentials('gh-token-secret')
     }
 
     stages {
@@ -27,7 +26,12 @@ pipeline {
         stage('release') {
             steps {
                 
-        withCredentials([[$class: 'UsernamePasswordMultiBinding', credentialsId: 'gh-token-secret', usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD']])
+        withCredentials([[$class: 'UsernamePasswordMultiBinding', credentialsId: 'gh-token-secret', usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD']]){
+                    sh """
+                    echo pwd=$PASSWORD
+                    GITHUB_TOKEN=$PASSWORD
+                    """
+        }
 
         sh "npm install @semantic-release/git -D"
 
