@@ -31,4 +31,4 @@ jobs:
         run: helm lint
       
       - name: Run helm template
-        run: helm template Chart.yaml
+        run: helm template webapp ./
