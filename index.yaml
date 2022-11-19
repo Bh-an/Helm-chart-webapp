@@ -3,12 +3,12 @@ entries:
   webapp:
   - apiVersion: v2
     appVersion: 1.0.0
-    created: "2022-11-19T00:12:50.457537826-05:00"
+    created: "2022-11-19T05:16:51.056875143Z"
     description: A Helm chart for webapp deployment in Kubernetes
-    digest: c4c6bea34adfadf0c0619be5887c9869c25b2aa1f2f945496a4ca2d1dc39d1b6
+    digest: edd174aaa3e79ced2d6b4981bc9031f5acd9a55bc9801ab7787f2f79081ae0c7
     name: webapp
     type: application
     urls:
-    - git@github.com:csye7125-fall2022-group01/helm-chart.git/webapp-1.0.0.tgz
+    - dist/webapp-1.0.0.tgz
     version: 1.0.0
-generated: "2022-11-19T00:12:50.457067037-05:00"
+generated: "2022-11-19T05:16:50.555756618Z"
