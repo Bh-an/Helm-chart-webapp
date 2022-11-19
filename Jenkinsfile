@@ -27,12 +27,12 @@ pipeline {
         stage('release') {
             steps {
                 
-        withCredentials([[$class: 'UsernamePasswordMultiBinding', credentialsId: 'gh-token-secret', usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD']]){
-                    sh """
-                    echo pwd=$PASSWORD
-                    GITHUB_TOKEN=$PASSWORD
-                    """
-        }
+        // withCredentials([[$class: 'UsernamePasswordMultiBinding', credentialsId: 'gh-token-secret', usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD']]){
+        //             sh """
+        //             echo pwd=$PASSWORD
+        //             GITHUB_TOKEN=$PASSWORD
+        //             """
+        // }
 
         sh "npm install @semantic-release/git -D"
 
