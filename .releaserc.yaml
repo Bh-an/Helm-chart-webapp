@@ -4,18 +4,26 @@ plugins:
   - "@semantic-release/commit-analyzer"
   - - "@semantic-release/exec"
     - prepareCmd: "
+        mkdir to_package &&
+        cp Chart.yaml values.yaml index.yaml to_package &&
+        cp -R templates to_package &&
+        cd to_package &&
         sed -i -e 's/version: .*/version: ${nextRelease.version}/g' Chart.yaml &&
+        cd .. && 
         mkdir -p dist &&
-        helm package . --destination dist/ &&
-        rm index.yaml && helm repo index .
+        helm package to_package --destination dist/ &&
+        cd to_package &&
+        rm index.yaml && helm repo index . &&
+        cd .. &&
+        rm -rf to_package
         "
   - "@semantic-release/release-notes-generator"
   - "@semantic-release/changelog"
   - - "@semantic-release/git"
     - assets:
         - CHANGELOG.md
-        - index.yaml
-        - Chart.yaml
+        - ./to_package/index.yaml
+        - ./to_package/Chart.yaml
       message: |
         chore(release): version ${nextRelease.version}
         \n
