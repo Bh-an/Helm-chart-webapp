@@ -26,3 +26,6 @@
     ```
     helm unistall <Release_name>
     ```
+
+
+helm install . -f values.yaml --generate-name
