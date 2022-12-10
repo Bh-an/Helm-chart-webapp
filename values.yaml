@@ -8,7 +8,7 @@ appimage:
   repository: csye7125group01/java_image
   pullPolicy: Always
   # Overrides the image tag whose default is the chart appVersion.
-  tag: "1.1.1"
+  tag: "latest"
 
 imagePullSecrets: [{ name: regcred }]
 
