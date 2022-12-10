@@ -1,3 +1,10 @@
+## [1.0.3](https://github.com/csye7125-fall2022-group01/helm-chart/compare/v1.0.2...v1.0.3) (2022-12-10)
+
+
+### Bug Fixes
+
+* **portno:** Chnaged service port ([ae7462b](https://github.com/csye7125-fall2022-group01/helm-chart/commit/ae7462b3182885228a3f4b4454169cff14f63ad7))
+
 ## [1.0.2](https://github.com/csye7125-fall2022-group01/helm-chart/compare/v1.0.1...v1.0.2) (2022-12-01)
 
 
