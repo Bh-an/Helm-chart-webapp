@@ -1,4 +1,24 @@
-apiVersion: autoscaling/v1
+# apiVersion: autoscaling/v1
+# kind: HorizontalPodAutoscaler
+# metadata:
+#     name: webapp-hpa
+# spec:
+#     scaleTargetRef:
+#         apiVersion: apps/v1
+#         kind: Deployment
+#         name: {{ include "webapp.fullname" . }}-deploy
+#     minReplicas: 1
+#     maxReplicas: 5
+#     metricsServer: dependency-metrics-server.metrics:443
+#     metrics:
+#         - type: Resource
+#           resource:
+#             name: cpu
+#             target:
+#             type: Utilization
+#             averageUtilization: 5
+
+apiVersion: autoscaling/v2beta2
 kind: HorizontalPodAutoscaler
 metadata:
     name: webapp-hpa
@@ -9,11 +29,12 @@ spec:
         name: {{ include "webapp.fullname" . }}-deploy
     minReplicas: 1
     maxReplicas: 5
-    #metricsServer: https://dependency-metrics-server.metrics:443
+    # metricsServer: https://dependency-metrics-server.metrics:443
+    # metricsServer: 10.0.102.97:8443
     metrics:
     - type: Resource
-    resource:
+      resource:
         name: cpu
         target:
-        type: Utilization
-        averageUtilization: 5
+            type: Utilization
+            averageUtilization: 5

@@ -25,6 +25,7 @@ spec:
       containers:
       - name: webapp
         image: "{{ .Values.appimage.repository }}:{{ .Values.appimage.tag }}"
+        imagePullPolicy: "{{ .Values.appimage.pullPolicy }}"
         livenessProbe:
           httpGet:
             #host: localhost
