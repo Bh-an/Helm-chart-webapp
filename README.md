@@ -28,4 +28,4 @@
     ```
 
 
-helm install . -f values.yaml --generate-name
+helm install . -f values.yaml -n apps --generate-name
