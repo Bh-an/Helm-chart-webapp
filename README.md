@@ -5,6 +5,10 @@ This helm-chart deploys a REST-api based app into a cluster. It uses a service t
 ## To install helm chart onto your cluster:
 
 - Download latest release of packaged chart / clone the repo
+- Set docker-hub credentials as secret for imagepull
+  ```
+  kubectl create secret docker-registry regcred --docker-server=docker.io --docker-username=<Username> --docker-password=<Password> --docker-email=<Email>
+  ```
 - Set kubectl context to your cluster 
 - Run:
   ```
