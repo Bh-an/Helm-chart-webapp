@@ -3,7 +3,7 @@ name: webapp
 description: A Helm chart for webapp deployment in Kubernetes
 
 type: application
-version: 1.0.2
+version: 1.0.3
 appVersion: "1.0.0"
 
 #helm repo add jetstack https://charts.jetstack.io
