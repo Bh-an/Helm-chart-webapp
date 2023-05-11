@@ -5,7 +5,7 @@
 replicaCount: 1
 
 appimage:
-  repository: csye7125group01/java_image
+  repository: docker_repo/container_image
   pullPolicy: Always
   # Overrides the image tag whose default is the chart appVersion.
   tag: "1.1.2"
